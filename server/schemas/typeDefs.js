@@ -23,7 +23,7 @@ type Auth {
 }
 
 type Query {
-    getMe: [User]
+    me: User
     users: [User]
     user(username: String!): User
 }
