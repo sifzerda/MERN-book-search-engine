@@ -1,4 +1,5 @@
 const { User } = require('../models');
+const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
 
 const resolvers = {
@@ -15,13 +16,15 @@ const resolvers = {
     },
 
     Mutation: {
-        createUser: async (parent, args) => {
-            const user = await User.create(args);
-            return user;
+        createUser: async (parent, { username, email, password }) => {
+            const user = await User.create({ username, email, password });
+            const token = signToken(user);
+            return { token, user };
         },
 
         loginUser: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
+
             if (!user) {
                 throw new AuthenticationError('Incorrect password or email');
             }
@@ -33,23 +36,23 @@ const resolvers = {
             return { token, user };
         },
 
-        saveBook: async (parent, { bookInput }, context) => {
+        saveBook: async (parent, { input }, context) => {
             if (context.user) {
-                const updatedUser = await User.findByIdAndUpdate(
+                const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $push: { savedBooks: bookInput } },
-                    { new: true }
+                    { $addToSet: { savedBooks: input } },
+                    { new: true, runValidators: true }
                 );
                 return updatedUser;
             }
             throw new AuthenticationError('Please log in to save a book.');
         },
 
-        deleteBook: async (parent, args, context) => {
+        deleteBook: async (parent, { bookId }, context) => {
             if (context.user) {
-                const updatedUser = await User.findByIdAndUpdate(
+                const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $pull: { savedBooks: { bookId: args.bookId } } },
+                    { $pull: { savedBooks: { bookId: bookId } } },
                     { new: true }
                 );
                 return updatedUser;
