@@ -13,6 +13,9 @@ const SavedBooks = () => {
   const { loading, data } = useQuery(GET_ME);
   const [deleteBook] = useMutation(DELETE_BOOK);
 
+  // optional chaining line: if data exists, if data exists 
+  // it will store inside userData variable, 
+  // if data doesn't exist, returns an empty array
   const userData = data?.me || [];
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
@@ -24,9 +27,12 @@ const SavedBooks = () => {
     }
 
     try {
+      // graphQL needs variables
+      // const data removed for ESLint
       await deleteBook({variables: { bookId } } );
 
       removeBookId(bookId);
+      window.location.reload(); /// added to reload page on book delete
     } catch (err) {
       console.error(err);
     }
