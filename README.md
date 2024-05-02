@@ -34,13 +34,9 @@ URL of app deployed to Render:
 
 Screenshot
 
-![image](https://github.com/sifzerda/Tech-Blog/assets/139626561/83208607-f29b-4ef8-a038-41ba0814ef53)
+![image](https://github.com/sifzerda/redux-store/assets/139626561/475556fd-e434-4614-aade-95978a6e2a64)
 
-![image](https://github.com/sifzerda/Tech-Blog/assets/139626561/a41b3995-3bea-4fe2-8e23-9ae4792f684e)
-
-![image](https://github.com/sifzerda/Tech-Blog/assets/139626561/cfcf8da9-ebb6-4d31-bff6-50b334a55580)
-
-![image](https://github.com/sifzerda/Tech-Blog/assets/139626561/d9bdb58f-a68b-40de-b52b-ad8ccc74ece8)
+![image](https://github.com/sifzerda/redux-store/assets/139626561/5360c6a5-cb7b-43e1-b154-4a5415db51b8)
 
 ## 4. Installation
 
