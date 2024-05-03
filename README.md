@@ -16,7 +16,7 @@
 
 This is an app for a Google Books search engine. 
 
-Users can search for a book by search term. The app makes a fetch request from the Google Books API, and returns a list of books relevant to the user's search term/s. The site allows user authentication to create an account, through which users can save or delete books, and review these later. 
+Users can search for a book by search term. The app makes a fetch request from the Google Books API, and returns a list of books relevant to the user's search term/s. The site allows user authentication through JSON web tokens, to create an account, through which users can save or delete books, and review these later. 
 
 This app has been deployed to Render.
 
