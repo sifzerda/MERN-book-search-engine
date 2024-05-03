@@ -14,9 +14,9 @@
 
 ## 1. Description
 
-This is an app for a Google Books search engine. 
+This is a MERN stack app for a Google Books API search engine, which has been rebuilt from a RESTful API architecture into a GraphQL API that uses Apollo Server. It has a front end built in React, runs on Node.js with Express server, and makes queries and mutations through GraphQL. Data is stored in a MongoDB database.
 
-Users can search for a book by search term. The app makes a fetch request from the Google Books API, and returns a list of books relevant to the user's search term/s. The site allows user authentication through JSON web tokens, to create an account, through which users can save or delete books, and review these later. 
+The app allows users to search for a book by search term. The app makes a fetch request from the Google Books API, and returns a list of books relevant to the user's search term/s. The site allows user authentication through JSON web tokens, for account creation, which lets registered users save or delete books, and review their saved books later. 
 
 This app has been deployed to Render.
 
