@@ -41,8 +41,8 @@ Screenshot
 ## 4. Installation
 
 ```diff
-- npm install i
-+ npm run start OR npm run dev
+- npm install 
++ npm run start OR npm run develop
 ```
 
 ## 5. Support
